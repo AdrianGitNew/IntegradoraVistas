@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView } from "react-native";
+import { useFonts } from "expo-font";
 
 const CitasScreen = () => {
   const [userCitas, setUserCitas] = useState([
@@ -22,6 +23,12 @@ const CitasScreen = () => {
       cliente: "Ana García",
     },
   ]);
+
+//Fuentes Personalizadas
+    const [fontsLoaded] = useFonts({
+    Playfair: require('../assets/PlayfairDisplay-VariableFont_wght.ttf'),
+    Raleway: require('../assets/Raleway-VariableFont_wght.ttf'),
+    });
 
   const cancelarCita = (id, tipo) => {
     Alert.alert(
@@ -97,6 +104,8 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     marginBottom: 20,
+    fontFamily: "Playfair",
+    marginTop: "5%"
   },
   card: {
     backgroundColor: "#fdf8d5",
@@ -114,11 +123,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#000",
     marginBottom: 10,
+    fontFamily: "Raleway"
+
   },
   serviceDetails: {
     fontSize: 16,
     color: "#000",
     marginBottom: 5,
+    fontFamily: "Raleway"
   },
   cancelButton: {
     marginTop: 15,

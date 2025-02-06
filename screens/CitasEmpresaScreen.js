@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView } from "react-native";
+import { useFonts } from "expo-font";
 
 const CitasEmpresaScreen = () => {
   const [empresaCitas, setEmpresaCitas] = useState([
@@ -38,6 +39,12 @@ const CitasEmpresaScreen = () => {
       ]
     );
   };
+
+//Fuentes Personalizadas
+    const [fontsLoaded] = useFonts({
+    Playfair: require('../assets/PlayfairDisplay-VariableFont_wght.ttf'),
+    Raleway: require('../assets/Raleway-VariableFont_wght.ttf'),
+    });
 
   const renderCitas = (citas) => (
     <ScrollView>
@@ -87,6 +94,8 @@ const styles = StyleSheet.create({
     color: "#033d3e",
     textAlign: "center",
     marginBottom: 20,
+    fontFamily: "Playfair",
+    marginTop: "5%"
   },
   card: {
     backgroundColor: "#ffffff",
@@ -106,11 +115,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#033d3e",
     marginBottom: 10,
+    fontFamily: "Raleway"
   },
   serviceDetails: {
     fontSize: 16,
     color: "#033d3e",
     marginBottom: 5,
+    fontFamily: "Raleway"
   },
   cancelButton: {
     marginTop: 15,

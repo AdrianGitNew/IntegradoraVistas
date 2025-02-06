@@ -59,6 +59,17 @@ function MyStack() {
     )
 }
 
+const PerfilStackNavigator = createNativeStackNavigator();
+
+function PerfilStack() {
+    return (
+        <PerfilStackNavigator.Navigator screenOptions={{ headerShown: false }}>
+            <PerfilStackNavigator.Screen name="PerfilScreen" component={PerfilScreen} />
+            <PerfilStackNavigator.Screen name="Registro" component={RegistroUserScreen} />
+        </PerfilStackNavigator.Navigator>
+    );
+}
+
 const Tab = createBottomTabNavigator();
 
 function Mytabs() {
@@ -89,7 +100,7 @@ function Mytabs() {
             />
             <Tab.Screen 
                 name="Perfil" 
-                component={PerfilScreen} 
+                component={PerfilStack} // ✅ Ahora usa el stack que incluye Registro
                 options={{
                     tabBarLabel: 'Perfil',
                     tabBarIcon: ({ color, size }) => (
@@ -98,6 +109,8 @@ function Mytabs() {
                     headerShown: false,
                 }}
             />
+
+
             <Tab.Screen 
                 name="Citas" 
                 component={CitasScreen} 

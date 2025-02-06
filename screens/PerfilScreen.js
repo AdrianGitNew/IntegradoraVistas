@@ -1,6 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useFonts } from "expo-font";
+import RegistroUserScreen from "./RegistroUserScreen";
 
 const PerfilScreen = () => {
     const user = {
@@ -11,7 +13,7 @@ const PerfilScreen = () => {
         fechaNacimiento: "-",
         genero: "-",
     };
-
+    const navigation = useNavigation();
 //Fuentes Personalizadas
 const [fontsLoaded] = useFonts({
     Playfair: require('../assets/PlayfairDisplay-VariableFont_wght.ttf'),
@@ -23,6 +25,16 @@ const [fontsLoaded] = useFonts({
             <View style={styles.header}>
                 <Text style={styles.userName}>{`${user.nombre} ${user.apellidos}`}</Text>
             </View>
+
+            <TouchableOpacity
+    onPress={() => navigation.navigate("Registro")} // ✅ Asegura que coincida con el nombre en el Stack
+    style={styles.button}
+>
+    <Text style={styles.buttonRegistro}>Regístrate con Nosotros</Text>
+</TouchableOpacity>
+
+
+
 
             <View style={styles.infoContainer}>
                 <Text style={styles.infoText}>
@@ -79,6 +91,14 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#000",
     },
+    button: {
+        backgroundColor: "#266150",
+        padding: 10,
+        width: "50%",
+        alignSelf: "center",
+        borderRadius: 10,
+        marginBottom: 20,
+    }
 });
 
 export default PerfilScreen;

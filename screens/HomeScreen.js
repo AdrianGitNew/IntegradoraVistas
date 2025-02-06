@@ -17,13 +17,6 @@ const HomeScreen = () => {
         <ScrollView style={styles.container}> {/* Envolvemos todo el contenido en ScrollView */}
             <Text style={styles.title}>Bienvenido a StyleDate!</Text>
             
-            <TouchableOpacity
-                onPress={() => navigation.navigate("Registro")}
-                style={styles.button}
-            >
-                <Text style={styles.buttonRegistro}>Regístrate con Nosotros</Text>
-            </TouchableOpacity>
-            
             <Text style={styles.TituloLocales}>Reserva tus servicios de belleza.</Text>
             
             {/* Contenedor de locales */}
@@ -119,7 +112,7 @@ const styles = StyleSheet.create({
     },
     TituloLocales: {
         fontSize: 18,
-        textAlign: "left",
+        textAlign: "center",
         marginBottom: 10,
         color: "#333",
         fontFamily: "Playfair"
@@ -138,7 +131,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 4,
         elevation: 3,
-        width: "48%", // Tamaño de la tarjeta para que quepan dos por fila
+        width: "49.5%", // Tamaño de la tarjeta para que quepan dos por fila
         marginBottom: 10,
         alignItems: "center",
         borderWidth: 1.5,
